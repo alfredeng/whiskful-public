@@ -1,0 +1,23 @@
+#:schema https://www.schemastore.org/prek.json
+minimum_prek_version = "0.5.7"
+
+[[repos]]
+repo = "builtin"
+hooks = [
+  { id = "check-merge-conflict" },
+  { id = "check-toml" },
+  { id = "check-yaml" },
+]
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "prettier"
+name = "Prettier"
+language = "node"
+language_version = "26.12.1"
+entry = "prettier --write --ignore-unknown"
+additional_dependencies = ["prettier@3.9.10"]
+types = ["file"]
+types_or = ["html", "css", "javascript", "json", "yaml", "markdown", "svg"]
